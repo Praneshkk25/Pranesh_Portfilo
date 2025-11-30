@@ -11,13 +11,13 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }) => {
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 50,
       scale: 0.9
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
       transition: {
@@ -67,14 +67,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
       animate="visible"
       onClick={() => onCardClick(project)}
     >
-      <motion.div 
+      <motion.div
         className={styles.cardContent}
         variants={hoverVariants}
       >
         {/* Project Image */}
         <div className={styles.imageContainer}>
-          <img 
-            src={project.images[0] || '/images/projects/placeholder.jpg'} 
+          <img
+            src={project.images[0] || '/images/projects/placeholder.jpg'}
             alt={project.title}
             className={styles.projectImage}
           />
@@ -91,13 +91,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
           <div className={styles.projectHeader}>
             <h3 className={styles.projectTitle}>{project.title}</h3>
             <div className={styles.projectMeta}>
-              <span 
+              <span
                 className={styles.category}
                 style={{ backgroundColor: getCategoryColor(project.category) }}
               >
                 {project.category.toUpperCase()}
               </span>
-              <span 
+              <span
                 className={styles.status}
                 style={{ color: getStatusColor(project.status) }}
               >
@@ -108,8 +108,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
 
           {/* Description */}
           <p className={styles.projectDescription}>
-            {project.description.length > 120 
-              ? `${project.description.substring(0, 120)}...` 
+            {project.description.length > 120
+              ? `${project.description.substring(0, 120)}...`
               : project.description
             }
           </p>
@@ -135,10 +135,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
           {/* Technologies */}
           <div className={styles.technologies}>
             {project.technologies.slice(0, 4).map((tech, techIndex) => (
-              <span 
+              <span
                 key={techIndex}
                 className={styles.techTag}
-                style={{ 
+                style={{
                   backgroundColor: `${getTechnologyColor(tech)}20`,
                   borderColor: getTechnologyColor(tech),
                   color: getTechnologyColor(tech)
@@ -157,9 +157,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
           {/* Action Links */}
           <div className={styles.projectActions}>
             {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
+              <a
+                href={project.liveUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={styles.actionLink}
                 onClick={(e) => e.stopPropagation()}
@@ -169,9 +169,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
               </a>
             )}
             {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
+              <a
+                href={project.githubUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={styles.actionLink}
                 onClick={(e) => e.stopPropagation()}

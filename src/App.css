@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   background-color: #ffffff;
+  overflow-x: hidden;
 }
 
 [data-theme="dark"] #root {
@@ -12,10 +13,26 @@
 .App {
   min-height: 100vh;
   background-color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 [data-theme="dark"] .App {
   background-color: #0f172a;
+}
+
+/* Fix mobile scroll issues */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .logo {
