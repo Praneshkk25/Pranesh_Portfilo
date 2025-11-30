@@ -1,0 +1,392 @@
+// CSS custom properties are globally available from themes.scss
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+  }
+}
+
+// Contact Methods Section
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contactCard {
+  transition: all var(--duration-normal) var(--ease-in-out);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.contactLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardContent {
+  background: var(--color-surface);
+  padding: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  transition: all var(--duration-normal) var(--ease-in-out);
+
+  .contactCard:hover & {
+    border-color: var(--color-primary);
+    background: var(--color-surface);
+  }
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left var(--duration-slow) var(--ease-out);
+  }
+
+  .contactCard:hover &::before {
+    left: 100%;
+  }
+}
+
+.iconEmoji {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.cardInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.cardValue {
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+  word-break: break-word;
+}
+
+.cardDescription {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+// Social Section
+.socialSection {
+  .socialGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+.socialCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--duration-normal) var(--ease-in-out);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .socialArrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.socialIcon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-secondary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.socialContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.socialTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.socialDescription {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.socialArrow {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+// Contact Note
+.contactNote {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+  }
+}
+
+.noteIcon {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  margin-top: 2px;
+}
+
+.noteText {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+// Responsive Design
+@media (max-width: 374px) {
+  .contactInfo {
+    gap: var(--spacing-lg);
+  }
+  
+  .cardContent {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cardIcon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .iconEmoji {
+    font-size: 1.125rem;
+  }
+
+  .socialCard {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .socialIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .contactNote {
+    padding: var(--spacing-sm);
+  }
+  
+  .socialArrow {
+    display: none;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 424px) {
+  .cardContent {
+    flex-direction: row;
+    text-align: left;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+
+  .socialCard {
+    flex-direction: row;
+    text-align: left;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  
+  .socialArrow {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .iconEmoji {
+    font-size: 1.25rem;
+  }
+
+  .socialIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.125rem;
+  }
+
+  .contactNote {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .socialGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contactMethods {
+    gap: var(--spacing-lg);
+  }
+  
+  .socialGrid {
+    gap: var(--spacing-lg);
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .cardContent,
+  .socialCard,
+  .contactNote {
+    border-width: 2px;
+  }
+
+  .cardIcon,
+  .socialIcon {
+    background: var(--color-primary);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .contactCard,
+  .socialCard {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .cardIcon::before {
+    display: none;
+  }
+
+  .socialCard::before {
+    transition: none;
+  }
+
+  .socialArrow {
+    transition: none;
+  }
+}

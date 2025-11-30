@@ -1,0 +1,210 @@
+// CSS custom properties are globally available from themes.scss
+
+.lazyImageContainer {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  z-index: 1;
+}
+
+.blurPlaceholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.placeholderImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.defaultPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--color-text-secondary);
+  background: linear-gradient(
+    45deg,
+    var(--color-surface) 25%,
+    transparent 25%,
+    transparent 75%,
+    var(--color-surface) 75%
+  );
+  background-size: 20px 20px;
+  animation: placeholderShimmer 2s ease-in-out infinite;
+}
+
+.placeholderIcon {
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
+  
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@keyframes placeholderShimmer {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.errorState {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  z-index: 2;
+}
+
+.errorIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--spacing-sm);
+  color: #ef4444;
+  
+  @media (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.errorText {
+  font-size: 0.875rem;
+  text-align: center;
+  font-weight: 500;
+  
+  @media (max-width: 767px) {
+    font-size: 0.75rem;
+  }
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+  z-index: 3;
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.loadingIndicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--color-border);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  
+  @media (max-width: 767px) {
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .lazyImageContainer {
+    border-radius: var(--radius-sm);
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .defaultPlaceholder {
+    background: var(--color-surface);
+    border: 2px solid var(--color-text);
+  }
+  
+  .errorState {
+    border: 2px solid var(--color-text);
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    transition: none;
+  }
+  
+  .spinner {
+    animation: none;
+    border-top-color: var(--color-primary);
+  }
+  
+  .defaultPlaceholder {
+    animation: none;
+  }
+}
+
+// Print styles
+@media print {
+  .placeholder,
+  .loadingIndicator,
+  .errorState {
+    display: none;
+  }
+  
+  .image {
+    opacity: 1;
+    position: static;
+  }
+}

@@ -1,0 +1,187 @@
+// CSS custom properties are globally available from themes.scss
+
+.contact {
+  padding: var(--spacing-3xl) 0;
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+
+  // Subtle gradient background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-background) 0%,
+      rgba(37, 99, 235, 0.02) 25%,
+      rgba(124, 58, 237, 0.02) 50%,
+      rgba(6, 182, 212, 0.02) 75%,
+      var(--color-background) 100%
+    );
+    z-index: 0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 767px) {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+
+  @media (max-width: 767px) {
+    margin-bottom: var(--spacing-2xl);
+  }
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+
+  @media (max-width: 767px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+}
+
+.titleGradient {
+  background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+
+  @media (max-width: 767px) {
+    font-size: 1.125rem;
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: start;
+
+  @media (min-width: 768px) {
+    gap: var(--spacing-2xl);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+}
+
+.contactInfoSection {
+  @media (max-width: 767px) {
+    order: 2;
+  }
+}
+
+.contactFormSection {
+  @media (max-width: 767px) {
+    order: 1;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 374px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 424px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 767px) {
+  .contentGrid {
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .contactInfoSection {
+    order: 1;
+  }
+
+  .contactFormSection {
+    order: 2;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .contentGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .contentGrid {
+    gap: var(--spacing-2xl);
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .contactInfoSection {
+    order: 1;
+  }
+
+  .contactFormSection {
+    order: 2;
+  }
+}
+
+// Animation support
+@media (prefers-reduced-motion: reduce) {
+  .contact * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

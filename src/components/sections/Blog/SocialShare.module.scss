@@ -1,0 +1,108 @@
+.socialShare {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &.vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.shareLabel {
+  span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.shareButtons {
+  display: flex;
+  gap: 0.5rem;
+
+  .vertical & {
+    flex-direction: column;
+  }
+
+  .horizontal & {
+    flex-direction: row;
+  }
+}
+
+.shareButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-text-secondary);
+
+  &:hover {
+    background: var(--share-color);
+    border-color: var(--share-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    transition: all 0.2s ease;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .socialShare {
+    &.vertical {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .shareButtons {
+    .vertical & {
+      flex-direction: row;
+    }
+  }
+
+  .shareButton {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shareButton {
+    width: 36px;
+    height: 36px;
+    
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

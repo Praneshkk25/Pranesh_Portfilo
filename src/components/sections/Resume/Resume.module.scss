@@ -1,0 +1,126 @@
+// CSS custom properties are globally available from themes.scss
+
+
+.resume {
+  min-height: 100vh;
+  padding: 6rem 0;
+  background: var(--background);
+  position: relative;
+  
+  // Gradient background overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-background);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+    
+    @media (max-width: 768px) {
+      padding: 0 1rem;
+    }
+  }
+  
+  .content {
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+      
+      .title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        
+        @media (max-width: 768px) {
+          font-size: 2.5rem;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 2rem;
+        }
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin: 0;
+        
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    
+    .downloadSection {
+      text-align: center;
+      margin-top: 4rem;
+      
+      .downloadButton {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+        
+        .downloadIcon {
+          font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+          padding: 0.875rem 1.5rem;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+}
+
+// Light theme
+.resume.light {
+  --background: var(--color-background);
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --gradient-primary: var(--gradient-primary);
+  --gradient-background: var(--gradient-primary);
+}
+
+// Dark theme
+.resume.dark {
+  --background: var(--color-background);
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --gradient-primary: var(--gradient-primary);
+  --gradient-background: var(--gradient-primary);
+}

@@ -1,0 +1,362 @@
+// CSS custom properties are globally available from themes.scss
+
+.contactForm {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+  }
+
+  @media (max-width: 767px) {
+    padding: var(--spacing-lg);
+  }
+}
+
+.formHeader {
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+
+  @media (max-width: 767px) {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+.formTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+
+  @media (max-width: 767px) {
+    font-size: 1.5rem;
+  }
+}
+
+.formDescription {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+
+  &::after {
+    content: ' *';
+    color: var(--color-accent);
+  }
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all var(--duration-normal) var(--ease-in-out);
+  width: 100%;
+  min-height: 44px;
+  resize: none;
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  &:hover:not(:focus):not(:disabled) {
+    border-color: var(--color-primary);
+  }
+
+  &.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+
+    &:focus {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--color-border);
+  }
+}
+
+.textarea {
+  min-height: 120px;
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+.characterCount {
+  align-self: flex-end;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+
+  &::before {
+    content: '⚠️';
+    font-size: 0.8rem;
+  }
+}
+
+.submitSection {
+  margin-top: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: all var(--duration-normal) var(--ease-in-out);
+  min-height: 44px;
+  min-width: 44px;
+  position: relative;
+  overflow: hidden;
+  min-width: 160px;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left var(--duration-slow) var(--ease-out);
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &.submitting {
+    .buttonIcon {
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+.buttonText {
+  font-weight: 600;
+}
+
+.buttonIcon {
+  font-size: 1.1rem;
+  transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.statusMessage {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: 500;
+
+  &.success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #059669;
+
+    [data-theme="dark"] & {
+      background: rgba(34, 197, 94, 0.15);
+      color: #10b981;
+    }
+  }
+
+  &.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #dc2626;
+
+    [data-theme="dark"] & {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+    }
+  }
+}
+
+.statusIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.statusText {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.resetButton {
+  background: none;
+  border: 1px solid currentColor;
+  color: inherit;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-in-out);
+
+  &:hover {
+    background: currentColor;
+    color: white;
+  }
+}
+
+// Focus management for accessibility
+.input:focus,
+.textarea:focus,
+.submitButton:focus,
+.resetButton:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .input,
+  .textarea {
+    border-width: 3px;
+  }
+
+  .submitButton {
+    background: var(--color-primary);
+    border: 2px solid var(--color-text);
+  }
+
+  .errorMessage {
+    font-weight: 700;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .submitButton {
+    &:hover {
+      transform: none;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &.submitting .buttonIcon {
+      animation: none;
+    }
+  }
+
+  .input,
+  .textarea {
+    transition: none;
+  }
+}
+
+// Print styles
+@media print {
+  .contactForm {
+    border: 2px solid #000;
+    background: white;
+  }
+
+  .submitButton {
+    display: none;
+  }
+}

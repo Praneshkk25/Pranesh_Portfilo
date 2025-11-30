@@ -1,0 +1,407 @@
+// Layout Component Styles
+.layout {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.layoutContent {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Skip to main content link for accessibility
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  z-index: 9999;
+  transition: top 0.3s ease;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Theme toggle positioning
+.themeToggleContainer {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  
+  @media (max-width: 768px) {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+// Main content area
+.mainContent {
+  flex: 1;
+  padding-top: 5rem; // Account for fixed navigation
+  position: relative;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 768px) {
+    padding-top: 4rem;
+  }
+}
+
+// Loading state
+.loadingContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background);
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.loadingText {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Error state
+.errorContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background);
+  z-index: 9999;
+  padding: 2rem;
+}
+
+.errorContent {
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.errorMessage {
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.retryButton {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+// Footer
+.footer {
+  margin-top: auto;
+  padding: 3rem 0 2rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  
+  @media (max-width: 768px) {
+    padding: 2rem 0 1.5rem;
+  }
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
+
+.footerText {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 2rem;
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
+}
+
+.footerLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: var(--color-primary);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+// Background gradient overlay
+.backgroundGradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+  
+  [data-theme="dark"] & {
+    opacity: 0.05;
+  }
+}
+
+// Responsive container utility
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
+}
+
+// Section spacing utility
+.section {
+  padding: 6rem 0;
+  
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 3rem 0;
+  }
+}
+
+// Scroll behavior improvements
+.layout {
+  scroll-behavior: smooth;
+  
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+// Focus management
+.mainContent:focus {
+  outline: none;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .footer {
+    border-top: 2px solid var(--color-text);
+  }
+  
+  .errorContent {
+    border: 2px solid var(--color-text);
+  }
+  
+  .retryButton {
+    border: 2px solid white;
+  }
+}
+
+// Print styles
+@media print {
+  .layout {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .skipLink,
+  .themeToggleContainer,
+  .footer {
+    display: none !important;
+  }
+  
+  .mainContent {
+    padding-top: 0 !important;
+  }
+  
+  .backgroundGradient {
+    display: none !important;
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .layoutContent,
+  .mainContent,
+  .footer,
+  .spinner {
+    animation: none !important;
+    transition-duration: 0.1s !important;
+  }
+}
+
+// Dark mode specific adjustments
+[data-theme="dark"] {
+  .loadingContainer,
+  .errorContainer {
+    background: var(--color-background);
+  }
+  
+  .errorContent {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+  }
+  
+  .footer {
+    background: var(--color-surface);
+    border-top-color: var(--color-border);
+  }
+}
+
+// Animation utilities
+.fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slideUp {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Accessibility improvements
+.layout {
+  &:focus-within {
+    .skipLink {
+      top: 6px;
+    }
+  }
+}
+
+// Mobile-specific optimizations
+@media (max-width: 480px) {
+  .layoutContent {
+    min-height: 100vh;
+    min-height: 100dvh; // Dynamic viewport height for mobile browsers
+  }
+  
+  .mainContent {
+    padding-top: 3.5rem;
+  }
+  
+  .errorContent {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .footerContent {
+    padding: 0 0.5rem;
+  }
+}

@@ -1,0 +1,203 @@
+// CSS custom properties are globally available from themes.scss
+
+.projectsSection {
+  padding: 6rem 0;
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  .sectionTitle {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.filterSection {
+  margin-bottom: 3rem;
+  
+  .filterGroup {
+    margin-bottom: 2rem;
+    
+    .filterTitle {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  }
+}
+
+.categoryFilter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  .filterButton {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-in-out);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    &.active {
+      background: var(--category-color, var(--color-primary));
+      border-color: var(--category-color, var(--color-primary));
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+  }
+}
+
+.technologyFilter {
+  display: flex;
+  justify-content: center;
+  
+  .technologySelect {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    
+    &:hover {
+      border-color: var(--color-primary);
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+  }
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-text-secondary);
+  
+  h3 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--color-text);
+  }
+  
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+.projectStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--color-surface);
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  
+  .statItem {
+    text-align: center;
+    
+    .statNumber {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    
+    .statLabel {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 4rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .filterSection {
+    margin-bottom: 2rem;
+    
+    .categoryFilter {
+      gap: 0.75rem;
+      
+      .filterButton {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+      }
+    }
+    
+    .technologyFilter .technologySelect {
+      min-width: 180px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+    }
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

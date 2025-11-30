@@ -1,0 +1,266 @@
+// CSS custom properties are globally available from themes.scss
+
+
+.educationTimeline {
+  margin: 3rem 0;
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+    
+    .sectionTitle {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .sectionSubtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    
+    .timelineLine {
+      position: absolute;
+      left: 2rem;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+      
+      @media (max-width: 768px) {
+        left: 1.5rem;
+      }
+    }
+    
+    .timelineItem {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 5rem;
+      
+      @media (max-width: 768px) {
+        padding-left: 4rem;
+      }
+      
+      .timelineMarker {
+        position: absolute;
+        left: 0.75rem;
+        top: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: 3px solid var(--surface);
+        
+        @media (max-width: 768px) {
+          left: 0.5rem;
+          width: 2rem;
+          height: 2rem;
+        }
+        
+        .timelineIcon {
+          font-size: 1.2rem;
+          
+          @media (max-width: 768px) {
+            font-size: 1rem;
+          }
+        }
+      }
+      
+      .timelineContent {
+        .timelineCard {
+          background: var(--surface);
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          border: 1px solid var(--border);
+          transition: all 0.3s ease;
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+          }
+          
+          .cardHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            
+            .degree {
+              font-size: 1.3rem;
+              font-weight: 600;
+              color: var(--text-primary);
+              margin: 0;
+              flex: 1;
+              min-width: 200px;
+            }
+            
+            .duration {
+              font-size: 0.9rem;
+              font-weight: 500;
+              color: var(--text-secondary);
+              background: var(--background-secondary);
+              padding: 0.25rem 0.75rem;
+              border-radius: 20px;
+              white-space: nowrap;
+            }
+          }
+          
+          .cardBody {
+            .institution {
+              font-size: 1.1rem;
+              font-weight: 500;
+              color: var(--text-primary);
+              margin: 0 0 0.5rem 0;
+            }
+            
+            .field {
+              font-size: 1rem;
+              color: var(--text-secondary);
+              margin: 0 0 1rem 0;
+              font-style: italic;
+            }
+            
+            .performance {
+              display: flex;
+              gap: 1.5rem;
+              margin: 1rem 0;
+              flex-wrap: wrap;
+              
+              .grade {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                
+                .gradeLabel {
+                  font-size: 0.9rem;
+                  color: var(--text-secondary);
+                  font-weight: 500;
+                }
+                
+                .gradeValue {
+                  font-size: 1rem;
+                  font-weight: 600;
+                  color: var(--text-primary);
+                  background: var(--gradient-primary);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  background-clip: text;
+                }
+              }
+            }
+            
+            .status {
+              margin-top: 1rem;
+              
+              .statusBadge {
+                display: inline-block;
+                background: var(--gradient-primary);
+                color: white;
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Light theme
+.educationTimeline.light {
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --surface: var(--color-surface);
+  --background-secondary: var(--color-surface);
+  --border: var(--color-border);
+  --gradient-primary: var(--gradient-primary);
+}
+
+// Dark theme
+.educationTimeline.dark {
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --surface: var(--color-surface);
+  --background-secondary: var(--color-surface);
+  --border: var(--color-border);
+  --gradient-primary: var(--gradient-primary);
+}
+
+@media (max-width: 768px) {
+  .educationTimeline {
+    .sectionHeader {
+      .sectionTitle {
+        font-size: 2rem;
+      }
+      
+      .sectionSubtitle {
+        font-size: 1rem;
+      }
+    }
+    
+    .timeline {
+      .timelineItem {
+        .timelineContent {
+          .timelineCard {
+            padding: 1rem;
+            
+            .cardHeader {
+              .degree {
+                font-size: 1.1rem;
+                min-width: auto;
+              }
+              
+              .duration {
+                font-size: 0.8rem;
+              }
+            }
+            
+            .cardBody {
+              .institution {
+                font-size: 1rem;
+              }
+              
+              .performance {
+                gap: 1rem;
+                
+                .grade {
+                  .gradeLabel {
+                    font-size: 0.8rem;
+                  }
+                  
+                  .gradeValue {
+                    font-size: 0.9rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

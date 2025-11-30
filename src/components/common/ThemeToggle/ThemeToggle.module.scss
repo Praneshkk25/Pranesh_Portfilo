@@ -1,0 +1,322 @@
+// Theme Toggle Component Styles
+.themeToggleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+  
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.themeToggle {
+  position: relative;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  // Glassmorphism effect
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  // Box shadow for depth
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  [data-theme="dark"] & {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  &:hover {
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    
+    [data-theme="dark"] & {
+      box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+  }
+  
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  // Size variants
+  &.small {
+    width: 32px;
+    height: 32px;
+  }
+  
+  &.medium {
+    width: 40px;
+    height: 40px;
+  }
+  
+  &.large {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+// Icon container
+.iconContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Sun icon styles
+.sunRays {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sunRay {
+  position: absolute;
+  background: #fbbf24;
+  border-radius: 2px;
+  transform-origin: center;
+  
+  &:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%) rotate(0deg); }
+  &:nth-child(2) { top: 20%; right: 20%; transform: rotate(45deg); }
+  &:nth-child(3) { top: 50%; right: 10%; transform: translateY(-50%) rotate(90deg); }
+  &:nth-child(4) { bottom: 20%; right: 20%; transform: rotate(135deg); }
+  &:nth-child(5) { bottom: 10%; left: 50%; transform: translateX(-50%) rotate(180deg); }
+  &:nth-child(6) { bottom: 20%; left: 20%; transform: rotate(225deg); }
+  &:nth-child(7) { top: 50%; left: 10%; transform: translateY(-50%) rotate(270deg); }
+  &:nth-child(8) { top: 20%; left: 20%; transform: rotate(315deg); }
+}
+
+.sunCircle {
+  background: radial-gradient(circle, #fbbf24 0%, #f59e0b 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px rgba(251, 191, 36, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+// Moon icon styles
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  background: #e2e8f0;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(226, 232, 240, 0.6);
+  
+  [data-theme="dark"] & {
+    background: #f1f5f9;
+    box-shadow: 0 0 4px rgba(241, 245, 249, 0.8);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 1px;
+    background: inherit;
+    transform: translate(-50%, -50%);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 150%;
+    background: inherit;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.moonCrescent {
+  background: #64748b;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    0 0 10px rgba(100, 116, 139, 0.4),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+  
+  [data-theme="dark"] & {
+    background: #94a3b8;
+    box-shadow: 
+      0 0 10px rgba(148, 163, 184, 0.6),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    background: var(--color-background);
+    border-radius: 50%;
+    transform: translate(-10%, -10%);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Hover effects
+.themeToggle:hover {
+  .sunRay {
+    background: #f59e0b;
+    box-shadow: 0 0 4px rgba(245, 158, 11, 0.6);
+  }
+  
+  .sunCircle {
+    box-shadow: 
+      0 0 15px rgba(251, 191, 36, 0.6),
+      inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  }
+  
+  .star {
+    box-shadow: 0 0 6px rgba(226, 232, 240, 0.8);
+    
+    [data-theme="dark"] & {
+      box-shadow: 0 0 6px rgba(241, 245, 249, 1);
+    }
+  }
+  
+  .moonCrescent {
+    box-shadow: 
+      0 0 15px rgba(100, 116, 139, 0.6),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    [data-theme="dark"] & {
+      box-shadow: 
+        0 0 15px rgba(148, 163, 184, 0.8),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .themeToggle,
+  .iconContainer,
+  .sunRays,
+  .stars,
+  .star {
+    animation: none !important;
+    transition-duration: 0.1s !important;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .themeToggle {
+    border: 2px solid var(--color-text);
+    background: var(--color-background);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  .sunRay,
+  .sunCircle {
+    background: var(--color-text);
+  }
+  
+  .star,
+  .moonCrescent {
+    background: var(--color-text);
+  }
+  
+  .moonCrescent::before {
+    background: var(--color-background);
+  }
+}
+
+// Focus styles for keyboard navigation
+.themeToggle:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+// Animation for theme transition
+@keyframes themeTransition {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+// Pulse animation for active state
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+  }
+}
+
+.themeToggle:active {
+  animation: pulse 0.6s ease-out;
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .themeToggleWrapper {
+    gap: 0.25rem;
+  }
+  
+  .themeToggle {
+    &.medium {
+      width: 36px;
+      height: 36px;
+    }
+    
+    &.large {
+      width: 44px;
+      height: 44px;
+    }
+  }
+}

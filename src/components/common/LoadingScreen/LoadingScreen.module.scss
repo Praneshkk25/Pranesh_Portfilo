@@ -1,0 +1,74 @@
+.loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  
+  .content {
+    text-align: center;
+    color: #1e293b;
+    
+    .logo {
+      margin-bottom: 2rem;
+      
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem 0;
+        color: #2563eb;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        opacity: 0.8;
+        margin: 0;
+      }
+    }
+    
+    .spinner {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      
+      .dot {
+        width: 8px;
+        height: 8px;
+        background: #06b6d4;
+        border-radius: 50%;
+        animation: bounce 1.4s ease-in-out infinite both;
+        
+        &:nth-child(1) { animation-delay: -0.32s; }
+        &:nth-child(2) { animation-delay: -0.16s; }
+        &:nth-child(3) { animation-delay: 0s; }
+      }
+    }
+    
+    .loadingText {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin: 0;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .loadingScreen .content .logo h1 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,138 @@
+.filterContainer {
+  margin-bottom: 2rem;
+}
+
+.filterTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.categoryButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: var(--category-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    
+    .categoryIndicator {
+      transform: scale(1.2);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &.active {
+    border-color: var(--category-color);
+    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(99, 102, 241, 0.05) 100%);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--category-color);
+    }
+    
+    .categoryLabel {
+      color: var(--category-color);
+      font-weight: 600;
+    }
+    
+    .categoryIndicator {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+  }
+}
+
+.categoryIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.categoryLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.categoryDescription {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .categoryList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .categoryButton {
+    min-width: unset;
+    padding: 0.75rem;
+  }
+  
+  .categoryLabel {
+    font-size: 0.8rem;
+  }
+  
+  .categoryDescription {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryList {
+    grid-template-columns: 1fr;
+  }
+  
+  .categoryButton {
+    padding: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .categoryIndicator {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .categoryLabel {
+    margin-bottom: 0.125rem;
+  }
+}

@@ -1,0 +1,140 @@
+// CSS custom properties are globally available from themes.scss
+
+
+.resumeHeader {
+  margin-bottom: 3rem;
+  
+  .summarySection {
+    margin-bottom: 2rem;
+    
+    .summaryTitle {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      
+      .highlight {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: var(--surface);
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateX(5px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlightIcon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 1.5rem;
+          height: 1.5rem;
+          background: var(--gradient-primary);
+          color: white;
+          border-radius: 50%;
+          font-size: 0.8rem;
+          font-weight: 600;
+          flex-shrink: 0;
+        }
+        
+        .highlightText {
+          font-size: 0.95rem;
+          color: var(--text-primary);
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+  
+  .objectiveSection {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    
+    .objectiveTitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      &::before {
+        content: '🎯';
+        font-size: 1.2rem;
+      }
+    }
+    
+    .objectiveText {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin: 0;
+      text-align: justify;
+    }
+  }
+}
+
+// Light theme
+.resumeHeader.light {
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --surface: var(--color-surface);
+  --border: var(--color-border);
+  --gradient-primary: var(--gradient-primary);
+}
+
+// Dark theme
+.resumeHeader.dark {
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+  --surface: var(--color-surface);
+  --border: var(--color-border);
+  --gradient-primary: var(--gradient-primary);
+}
+
+@media (max-width: 768px) {
+  .resumeHeader {
+    .summarySection {
+      .summaryTitle {
+        font-size: 1.6rem;
+      }
+    }
+    
+    .objectiveSection {
+      padding: 1.5rem;
+      
+      .objectiveTitle {
+        font-size: 1.2rem;
+      }
+      
+      .objectiveText {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

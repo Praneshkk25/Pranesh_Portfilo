@@ -1,0 +1,514 @@
+// Responsive Design Utilities
+// This file contains mixins, utilities, and responsive design patterns
+
+// Base themes are imported separately to avoid circular imports
+
+// ============================================================================
+// RESPONSIVE MIXINS
+// ============================================================================
+
+// Mobile-first responsive mixins
+@mixin mobile-first($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Desktop-first responsive mixins
+@mixin desktop-first($breakpoint) {
+  @media (max-width: calc(#{$breakpoint} - 1px)) {
+    @content;
+  }
+}
+
+// Specific device mixins
+@mixin mobile-small {
+  @media (max-width: 374px) {
+    @content;
+  }
+}
+
+@mixin mobile-medium {
+  @media (min-width: 375px) and (max-width: 424px) {
+    @content;
+  }
+}
+
+@mixin mobile-large {
+  @media (min-width: 425px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin desktop-small {
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: 1536px) {
+    @content;
+  }
+}
+
+// ============================================================================
+// RESPONSIVE TYPOGRAPHY
+// ============================================================================
+
+// Fluid typography mixin
+@mixin fluid-type($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+  font-size: $min-size;
+  
+  @media (min-width: $min-width) {
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+  }
+  
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+
+// Strip unit helper function
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// Responsive text sizes
+@mixin text-responsive($size) {
+  @if $size == 'xs' {
+    @include fluid-type(0.75rem, 0.875rem);
+  } @else if $size == 'sm' {
+    @include fluid-type(0.875rem, 1rem);
+  } @else if $size == 'base' {
+    @include fluid-type(1rem, 1.125rem);
+  } @else if $size == 'lg' {
+    @include fluid-type(1.125rem, 1.25rem);
+  } @else if $size == 'xl' {
+    @include fluid-type(1.25rem, 1.5rem);
+  } @else if $size == '2xl' {
+    @include fluid-type(1.5rem, 2rem);
+  } @else if $size == '3xl' {
+    @include fluid-type(2rem, 3rem);
+  } @else if $size == '4xl' {
+    @include fluid-type(2.5rem, 4rem);
+  } @else if $size == '5xl' {
+    @include fluid-type(3rem, 5rem);
+  }
+}
+
+// ============================================================================
+// RESPONSIVE SPACING
+// ============================================================================
+
+// Responsive spacing mixin
+@mixin responsive-spacing($property, $mobile, $tablet: null, $desktop: null) {
+  #{$property}: $mobile;
+  
+  @if $tablet {
+    @media (min-width: 768px) {
+      #{$property}: $tablet;
+    }
+  }
+  
+  @if $desktop {
+    @media (min-width: 1024px) {
+      #{$property}: $desktop;
+    }
+  }
+}
+
+// Responsive padding utilities
+@mixin responsive-padding($mobile, $tablet: null, $desktop: null) {
+  @include responsive-spacing(padding, $mobile, $tablet, $desktop);
+}
+
+@mixin responsive-margin($mobile, $tablet: null, $desktop: null) {
+  @include responsive-spacing(margin, $mobile, $tablet, $desktop);
+}
+
+// ============================================================================
+// RESPONSIVE GRID SYSTEMS
+// ============================================================================
+
+// Responsive grid mixin
+@mixin responsive-grid($mobile-cols: 1, $tablet-cols: null, $desktop-cols: null, $gap: 1rem) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat($mobile-cols, 1fr);
+  
+  @if $tablet-cols {
+    @media (min-width: 768px) {
+      grid-template-columns: repeat($tablet-cols, 1fr);
+    }
+  }
+  
+  @if $desktop-cols {
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat($desktop-cols, 1fr);
+    }
+  }
+}
+
+// Auto-fit responsive grid
+@mixin auto-fit-grid($min-width: 250px, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+// Responsive flexbox utilities
+@mixin responsive-flex($mobile-direction: row, $tablet-direction: null, $desktop-direction: null) {
+  display: flex;
+  flex-direction: $mobile-direction;
+  
+  @if $tablet-direction {
+    @media (min-width: 768px) {
+      flex-direction: $tablet-direction;
+    }
+  }
+  
+  @if $desktop-direction {
+    @media (min-width: 1024px) {
+      flex-direction: $desktop-direction;
+    }
+  }
+}
+
+// ============================================================================
+// TOUCH-FRIENDLY INTERACTIONS
+// ============================================================================
+
+// Touch target mixin
+@mixin touch-target($min-size: 44px) {
+  min-height: $min-size;
+  min-width: $min-size;
+  
+  @media (max-width: 767px) {
+    min-height: 48px; // Larger on mobile
+    min-width: 48px;
+  }
+}
+
+// Touch-friendly button
+@mixin touch-button {
+  @include touch-target;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-in-out);
+  
+  @media (max-width: 767px) {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// ============================================================================
+// RESPONSIVE CONTAINERS
+// ============================================================================
+
+// Responsive container mixin
+@mixin responsive-container($max-width: 1200px) {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 0 2rem;
+  }
+  
+  @include wide-up {
+    max-width: 1400px;
+    padding: 0 3rem;
+  }
+}
+
+// Section container with responsive padding
+@mixin section-container {
+  @include responsive-container;
+  @include responsive-padding(3rem 0, 5rem 0, 6rem 0);
+}
+
+// ============================================================================
+// RESPONSIVE IMAGES AND MEDIA
+// ============================================================================
+
+// Responsive image mixin
+@mixin responsive-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Aspect ratio mixin
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// ============================================================================
+// RESPONSIVE NAVIGATION
+// ============================================================================
+
+// Mobile navigation mixin
+@mixin mobile-nav {
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 80vw;
+    background: var(--color-surface);
+    backdrop-filter: blur(20px);
+    transform: translateX(100%);
+    transition: transform var(--duration-normal) var(--ease-in-out);
+    z-index: 1000;
+    
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+// ============================================================================
+// RESPONSIVE UTILITIES
+// ============================================================================
+
+// Hide/show utilities
+.hide-mobile {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.hide-tablet {
+  @media (min-width: 768px) {
+    @include desktop-first(var(--breakpoint-lg)) {
+      display: none !important;
+    }
+  }
+}
+
+.hide-desktop {
+  @media (min-width: 1024px) {
+    display: none !important;
+  }
+}
+
+.show-mobile {
+  display: none !important;
+  
+  @media (max-width: 767px) {
+    display: block !important;
+  }
+}
+
+.show-tablet {
+  display: none !important;
+  
+  @media (min-width: 768px) {
+    @include desktop-first(var(--breakpoint-lg)) {
+      display: block !important;
+    }
+  }
+}
+
+.show-desktop {
+  display: none !important;
+  
+  @media (min-width: 1024px) {
+    display: block !important;
+  }
+}
+
+// Responsive text alignment
+.text-center-mobile {
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.text-left-desktop {
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
+}
+
+// ============================================================================
+// ACCESSIBILITY RESPONSIVE FEATURES
+// ============================================================================
+
+// Focus management for mobile
+@mixin mobile-focus {
+  @media (max-width: 767px) {
+    &:focus {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Reduced motion support
+@mixin respect-motion-preference {
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// High contrast support
+@mixin high-contrast-support {
+  @media (prefers-contrast: high) {
+    border: 2px solid var(--color-text);
+    background: var(--color-background);
+  }
+}
+
+// ============================================================================
+// RESPONSIVE FORM ELEMENTS
+// ============================================================================
+
+// Responsive form input
+@mixin responsive-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  @include touch-target;
+  
+  @media (max-width: 767px) {
+    font-size: 16px; // Prevent zoom on iOS
+    padding: 1rem;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+}
+
+// Responsive form layout
+@mixin responsive-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+  @media (min-width: 768px) {
+    gap: 1.5rem;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+  
+  .form-group {
+    flex: 1;
+  }
+}
+
+// ============================================================================
+// RESPONSIVE ANIMATIONS
+// ============================================================================
+
+// Stagger animation for mobile
+@mixin mobile-stagger($delay: 0.1s) {
+  @media (max-width: 767px) {
+    animation-delay: $delay;
+  }
+}
+
+// Parallax disable on mobile
+@mixin disable-parallax-mobile {
+  @media (max-width: 767px) {
+    transform: none !important;
+  }
+}
+
+// ============================================================================
+// PRINT STYLES
+// ============================================================================
+
+@mixin print-styles {
+  @media print {
+    * {
+      background: transparent !important;
+      color: black !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    
+    body {
+      font-size: 12pt;
+      line-height: 1.4;
+    }
+    
+    .hide-print {
+      display: none !important;
+    }
+    
+    .page-break {
+      page-break-before: always;
+    }
+  }
+}

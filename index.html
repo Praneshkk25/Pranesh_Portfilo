@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <!-- Favicon and app icons -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Viewport and mobile optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Pranesh K K - Full Stack Developer & Computer Science Engineer</title>
+    <meta name="description" content="Portfolio of Pranesh K K, a skilled Full Stack Developer and Computer Science Engineering student with expertise in Python, C programming, and web development. NPTEL certified in Python for Data Science." />
+    <meta name="keywords" content="Pranesh K K, Full Stack Developer, Computer Science Engineer, Python Developer, Web Developer, NPTEL Certification, Portfolio, React Developer" />
+    <meta name="author" content="Pranesh K K" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://praneshkk.dev/" />
+    <meta property="og:title" content="Pranesh K K - Full Stack Developer & Computer Science Engineer" />
+    <meta property="og:description" content="Portfolio of Pranesh K K, a skilled Full Stack Developer and Computer Science Engineering student with expertise in Python, C programming, and web development." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:site_name" content="Pranesh K K Portfolio" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://praneshkk.dev/" />
+    <meta property="twitter:title" content="Pranesh K K - Full Stack Developer & Computer Science Engineer" />
+    <meta property="twitter:description" content="Portfolio of Pranesh K K, a skilled Full Stack Developer and Computer Science Engineering student with expertise in Python, C programming, and web development." />
+    <meta property="twitter:image" content="/twitter-image.jpg" />
+    <meta property="twitter:creator" content="@praneshkk210" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+    
+    <!-- Critical CSS inlining placeholder -->
+    <style>
+      /* Critical CSS for above-the-fold content */
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading state */
+      .loading-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        font-size: 1.2rem;
+        color: #64748b;
+      }
+      
+      /* Screen reader only utility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pranesh K K",
+      "jobTitle": "Full Stack Developer & Computer Science Engineering Student",
+      "description": "Skilled Full Stack Developer with expertise in Python, C programming, and web development. NPTEL certified in Python for Data Science.",
+      "email": "pkpraneshkk@gmail.com",
+      "telephone": "+91 9443525784",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tiruchengode",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "India"
+      },
+      "sameAs": [
+        "https://github.com/Praneshkk25",
+        "www.linkedin.com/in/pranesh-k-k-3b17a228a"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "SCMA COLLEGE OF TECHNOLOGY"
+      },
+      "knowsAbout": [
+        "Python Programming",
+        "C Programming",
+        "Full Stack Development",
+        "Web Development",
+        "React.js",
+        "Node.js",
+        "Data Science",
+        "Software Engineering"
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <!-- Skip navigation for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+    
+    <!-- Main app container -->
+    <div id="root">
+      <!-- Fallback content for when JavaScript is disabled or loading -->
+      <div class="loading-fallback">
+        <div>
+          <h1>Pranesh K K</h1>
+          <p>Full Stack Developer & Computer Science Engineer</p>
+          <p>Loading portfolio...</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main application script -->
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker registration for PWA capabilities -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+      // Basic performance monitoring
+      window.addEventListener('load', () => {
+        if ('performance' in window) {
+          setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            if (perfData && window.location.hostname === 'localhost') {
+              console.log('Page Load Time:', perfData.loadEventEnd - perfData.fetchStart, 'ms');
+            }
+          }, 0);
+        }
+      });
+    </script>
+  </body>
+</html>

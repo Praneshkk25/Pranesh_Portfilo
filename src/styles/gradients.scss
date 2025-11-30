@@ -1,0 +1,333 @@
+// Gradient System
+// Comprehensive gradient utilities for the portfolio website
+
+// Primary gradient variations
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-primary-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+.gradient-secondary-text {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-accent {
+  background: var(--gradient-accent);
+}
+
+.gradient-accent-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+// Hero section gradient (deep blue to soft purple)
+.gradient-hero {
+  background: var(--gradient-hero);
+}
+
+.gradient-hero-text {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+// Animated gradients
+.gradient-animated {
+  background: linear-gradient(
+    -45deg,
+    #1e40af,
+    #7c3aed,
+    #be185d,
+    #059669
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Gradient overlays for images and cards
+.gradient-overlay {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.8) 0%,
+      rgba(124, 58, 237, 0.6) 50%,
+      rgba(190, 24, 93, 0.8) 100%
+    );
+    border-radius: inherit;
+    z-index: 1;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Gradient borders
+.gradient-border {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+}
+
+// Gradient buttons
+.btn-gradient {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-in-out);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left var(--duration-slow) var(--ease-out);
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-gradient-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid transparent;
+  background-image: var(--gradient-primary);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-in-out);
+  position: relative;
+  
+  &:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Gradient cards
+.card-gradient {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+// Skill progress bars with gradients
+.progress-gradient {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  
+  .progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    transition: width 1s var(--ease-out);
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: shimmer 2s infinite;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// Gradient backgrounds for sections
+.section-gradient-1 {
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 0%,
+    rgba(37, 99, 235, 0.05) 50%,
+    var(--color-background) 100%
+  );
+}
+
+.section-gradient-2 {
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 0%,
+    rgba(124, 58, 237, 0.05) 50%,
+    var(--color-background) 100%
+  );
+}
+
+.section-gradient-3 {
+  background: linear-gradient(
+    135deg,
+    var(--color-background) 0%,
+    rgba(6, 182, 212, 0.05) 50%,
+    var(--color-background) 100%
+  );
+}
+
+// Responsive gradient adjustments
+@media (max-width: 768px) {
+  .gradient-hero {
+    background: linear-gradient(
+      180deg,
+      #1e40af 0%,
+      #7c3aed 50%,
+      #be185d 100%
+    );
+  }
+  
+  .gradient-animated {
+    background-size: 200% 200%;
+    animation-duration: 6s;
+  }
+}
+
+// High contrast mode adjustments
+@media (prefers-contrast: high) {
+  .gradient-primary,
+  .gradient-secondary,
+  .gradient-accent,
+  .gradient-hero {
+    background: var(--color-primary);
+  }
+  
+  .gradient-primary-text,
+  .gradient-secondary-text,
+  .gradient-accent-text,
+  .gradient-hero-text {
+    background: var(--color-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .gradient-animated {
+    animation: none;
+    background: var(--gradient-primary);
+  }
+  
+  .progress-fill::after {
+    animation: none;
+  }
+}
