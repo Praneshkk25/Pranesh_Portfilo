@@ -35,6 +35,40 @@
   }
 }
 
+/* Hide any debug/development overlays */
+[data-debug],
+[data-test-id],
+.debug-overlay,
+.dev-tools-overlay {
+  display: none !important;
+}
+
+/* Hide skip links completely - they will only show on keyboard focus */
+.skip-links {
+  position: fixed !important;
+  top: -200px !important;
+  left: -200px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.skip-link {
+  position: fixed !important;
+  top: -200px !important;
+  left: -200px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.skip-link:focus {
+  top: 10px !important;
+  left: 10px !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 10000 !important;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

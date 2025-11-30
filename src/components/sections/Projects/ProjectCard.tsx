@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
       transition: {
         duration: 0.6,
         delay: index * 0.1,
-        ease: "easeOut"
+        ease: [0.4, 0, 0.2, 1]
       }
     }
   };
@@ -34,7 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onCardClick }
       scale: 1.02,
       transition: {
         duration: 0.3,
-        ease: "easeInOut"
+        ease: [0.4, 0, 0.2, 1]
       }
     }
   };

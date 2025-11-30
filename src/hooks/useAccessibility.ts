@@ -237,12 +237,7 @@ export const useSkipLinks = (links: Array<{ href: string; label: string }>) => {
   useEffect(() => {
     const skipLinksContainer = document.createElement('div');
     skipLinksContainer.className = 'skip-links';
-    skipLinksContainer.style.cssText = `
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 9999;
-    `;
+    skipLinksContainer.setAttribute('aria-hidden', 'true');
 
     links.forEach(({ href, label }) => {
       const skipLink = document.createElement('a');
@@ -250,24 +245,24 @@ export const useSkipLinks = (links: Array<{ href: string; label: string }>) => {
       skipLink.textContent = label;
       skipLink.className = 'skip-link';
       skipLink.style.cssText = `
-        position: absolute;
-        top: -40px;
-        left: 6px;
         background: #000;
         color: #fff;
-        padding: 8px 16px;
-        border-radius: 4px;
+        padding: 12px 20px;
+        border-radius: 6px;
         text-decoration: none;
-        font-weight: 500;
-        transition: top 0.3s ease;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
       `;
 
       skipLink.addEventListener('focus', () => {
-        skipLink.style.top = '6px';
+        skipLinksContainer.setAttribute('aria-hidden', 'false');
       });
 
       skipLink.addEventListener('blur', () => {
-        skipLink.style.top = '-40px';
+        skipLinksContainer.setAttribute('aria-hidden', 'true');
       });
 
       skipLinksContainer.appendChild(skipLink);
