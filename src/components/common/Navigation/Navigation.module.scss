@@ -103,7 +103,11 @@
   padding: 0;
   
   @media (max-width: 768px) {
-    display: none;
+    display: none !important;
+  }
+  
+  @media (max-width: 767px) {
+    display: none !important;
   }
 }
 
@@ -174,7 +178,7 @@
 
 // Mobile Menu Button
 .mobileMenuButton {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -184,11 +188,15 @@
   border: 2px solid var(--color-primary);
   cursor: pointer;
   padding: 8px;
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   min-height: 44px;
   min-width: 44px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  
+  @media (min-width: 769px) {
+    display: none;
+  }
   
   @media (max-width: 768px) {
     display: flex;

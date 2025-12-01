@@ -39,8 +39,15 @@
 [data-debug],
 [data-test-id],
 .debug-overlay,
-.dev-tools-overlay {
+.dev-tools-overlay,
+[class*="debug"],
+[class*="section-label"],
+div[style*="position: fixed"][style*="background: black"],
+div[style*="position: fixed"][style*="background: rgba(0"],
+div[style*="position: absolute"][style*="background: black"] {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 /* Hide skip links completely - they will only show on keyboard focus */

@@ -78,6 +78,7 @@ export const Hero: React.FC<HeroProps> = ({
   onResumeClick
 }) => {
   const { scrollY } = useScroll();
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   
   // Parallax transforms for different elements
   const backgroundY = useTransform(scrollY, [0, 1000], [0, -300]);
@@ -107,6 +108,27 @@ export const Hero: React.FC<HeroProps> = ({
       }
     }
   };
+
+  const handleScrollClick = () => {
+    const aboutSection = document.getElementById('about') || 
+                         document.getElementById('skills');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section className={styles.hero} id="hero">
@@ -269,10 +291,20 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* Scroll indicator */}
         <motion.div 
-          className={styles.scrollIndicator}
+          className={`${styles.scrollIndicator} ${!showScrollIndicator ? styles.hidden : ''}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
+          onClick={handleScrollClick}
+          role="button"
+          tabIndex={0}
+          aria-label="Scroll to next section"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleScrollClick();
+            }
+          }}
         >
           <motion.div 
             className={styles.scrollArrow}
