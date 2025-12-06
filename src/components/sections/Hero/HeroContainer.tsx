@@ -34,25 +34,25 @@ export const HeroContainer: React.FC = () => {
   const enhancedSocialLinks = [
     {
       platform: "GitHub",
-      url: "https://github.com/praneshkk210/Sub-repositories",
+      url: "https://github.com/praneshkk25",
       icon: "🔗",
       label: "View my repositories and projects on GitHub"
     },
     {
       platform: "LinkedIn", 
-      url: "https://linkedin.com/in/praneshkk210", // This should be updated with actual LinkedIn URL
+      url: "www.linkedin.com/in/pranesh-k-k-3b17a228a", // This should be updated with actual LinkedIn URL
       icon: "💼",
       label: "Connect with me on LinkedIn"
     },
     {
       platform: "Email",
-      url: `mailto:${personalInfo.email}`,
+      url: `pkpraneshkk@gmail.com`,
       icon: "📧", 
       label: "Send me an email"
     },
     {
       platform: "Phone",
-      url: `tel:${personalInfo.phone}`,
+      url: `9443525784`,
       icon: "📱",
       label: "Call or message me"
     }

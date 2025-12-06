@@ -79,10 +79,10 @@ The NPTEL certification wasn't just about getting a certificate—it was about b
     tags: ['Python', 'Data Science', 'NPTEL', 'Learning', 'Certification'],
     category: 'Learning & Development',
     featured: true,
-    coverImage: '/images/blog/python-data-science.jpg',
+    coverImage: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200&h=600&fit=crop',
     author: {
       name: 'Pranesh K K',
-      avatar: '/images/pranesh-avatar.jpg'
+      avatar: '/images/projects/WhatsApp Image 2025-11-30 at 08.54.00_f6ac79c0.jpg'
     }
   },
   {
@@ -174,10 +174,10 @@ The experience at VEERANA R&D has been instrumental in shaping my technical skil
     tags: ['Internship', 'Full Stack', 'Web Development', 'Career', 'Learning'],
     category: 'Career & Experience',
     featured: true,
-    coverImage: '/images/blog/internship-experience.jpg',
+    coverImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=600&fit=crop',
     author: {
       name: 'Pranesh K K',
-      avatar: '/images/pranesh-avatar.jpg'
+      avatar: '/images/projects/WhatsApp Image 2025-11-30 at 08.54.00_f6ac79c0.jpg'
     }
   },
   {
@@ -313,10 +313,10 @@ This project demonstrated the potential of technology to address important socia
     tags: ['Machine Learning', 'NLP', 'Team Leadership', 'Mental Health', 'Python', 'Project Management'],
     category: 'Project Deep Dive',
     featured: false,
-    coverImage: '/images/blog/mental-health-app.jpg',
+    coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=600&fit=crop',
     author: {
       name: 'Pranesh K K',
-      avatar: '/images/pranesh-avatar.jpg'
+      avatar: '/images/projects/WhatsApp Image 2025-11-30 at 08.54.00_f6ac79c0.jpg'
     }
   },
   {
@@ -454,10 +454,175 @@ The future of technology should be inclusive by default, and it's our responsibi
     tags: ['Accessibility', 'Inclusive Design', 'Assistive Technology', 'UX', 'Social Impact'],
     category: 'Accessibility & Inclusion',
     featured: false,
-    coverImage: '/images/blog/accessibility-development.jpg',
+    coverImage: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&h=600&fit=crop',
     author: {
       name: 'Pranesh K K',
-      avatar: '/images/pranesh-avatar.jpg'
+      avatar: '/images/projects/WhatsApp Image 2025-11-30 at 08.54.00_f6ac79c0.jpg'
+    }
+  },
+  {
+    id: 'ai-ml-internship-inlighnx',
+    title: 'AI & Machine Learning Internship at InLighnX Global: Diving Deep into Intelligent Systems',
+    excerpt: 'My experience as an AI & ML Intern at InLighnX Global Pvt Ltd, exploring machine learning model training, data preprocessing, and integrating AI solutions into real-world applications.',
+    content: `
+# AI & Machine Learning Internship at InLighnX Global
+
+From August 20 to October 20, 2025, I had the incredible opportunity to work as an AI & ML Intern at InLighnX Global Pvt Ltd (InLighn Tech). This experience deepened my understanding of artificial intelligence and machine learning while providing hands-on experience with cutting-edge technologies.
+
+## About InLighnX Global
+
+InLighnX Global is an innovative technology company specializing in AI-powered solutions and intelligent systems. Their focus on practical AI applications and commitment to emerging technologies made it an ideal environment for learning and growth.
+
+## Key Responsibilities
+
+### Machine Learning Model Development
+- Trained and fine-tuned machine learning models for various applications
+- Implemented supervised and unsupervised learning algorithms
+- Optimized model performance through hyperparameter tuning
+- Evaluated models using appropriate metrics and validation techniques
+
+### Data Preprocessing and Feature Engineering
+- Cleaned and prepared large datasets for model training
+- Performed exploratory data analysis to understand data patterns
+- Created meaningful features to improve model accuracy
+- Handled missing data and outliers effectively
+
+### AI Integration into Applications
+- Integrated trained ML models into web applications
+- Developed APIs for model inference and predictions
+- Implemented real-time prediction systems
+- Ensured scalability and performance of AI-powered features
+
+## Technical Skills Acquired
+
+### Machine Learning Frameworks
+- **TensorFlow**: Building and training neural networks
+- **Scikit-learn**: Classical machine learning algorithms
+- **Pandas & NumPy**: Data manipulation and numerical computing
+- **Matplotlib & Seaborn**: Data visualization and analysis
+
+### Deep Learning Concepts
+- Neural network architectures and design patterns
+- Convolutional Neural Networks (CNNs) for image processing
+- Recurrent Neural Networks (RNNs) for sequence data
+- Transfer learning and pre-trained models
+
+### MLOps and Deployment
+- Model versioning and experiment tracking
+- Containerization with Docker for model deployment
+- API development for model serving
+- Monitoring model performance in production
+
+## Notable Projects
+
+### Project 1: Predictive Analytics System
+Developed a machine learning system for predictive analytics:
+- **Challenge**: Predicting outcomes based on historical data
+- **Solution**: Implemented ensemble methods combining multiple models
+- **Result**: Achieved 92% accuracy on test dataset
+
+### Project 2: Natural Language Processing Application
+Built an NLP system for text analysis:
+- **Challenge**: Understanding and classifying user-generated content
+- **Solution**: Fine-tuned BERT model for domain-specific classification
+- **Result**: Improved classification accuracy by 25% over baseline
+
+### Project 3: Computer Vision Solution
+Created a computer vision application for image recognition:
+- **Challenge**: Real-time object detection and classification
+- **Solution**: Implemented YOLO architecture with custom training
+- **Result**: Achieved real-time performance with 30+ FPS
+
+## Challenges and Learning Experiences
+
+### Challenge 1: Data Quality Issues
+**Problem**: Inconsistent and noisy training data affecting model performance
+**Solution**: Implemented robust data cleaning pipelines and augmentation techniques
+**Learning**: Data quality is often more important than model complexity
+
+### Challenge 2: Model Overfitting
+**Problem**: Models performing well on training data but poorly on validation
+**Solution**: Applied regularization techniques, dropout, and cross-validation
+**Learning**: Importance of proper validation strategies and generalization
+
+### Challenge 3: Computational Resources
+**Problem**: Limited GPU resources for training large models
+**Solution**: Optimized training processes and used transfer learning
+**Learning**: Efficient resource utilization and smart model selection
+
+## Key Takeaways
+
+### Technical Insights
+1. **Start with Simple Models**: Begin with baseline models before complex architectures
+2. **Data is King**: Quality data is more valuable than sophisticated algorithms
+3. **Iterative Approach**: Continuous experimentation and refinement lead to better results
+4. **Production Readiness**: Building models is different from deploying them
+
+### Professional Development
+1. **Research Skills**: Reading and implementing research papers
+2. **Problem Decomposition**: Breaking complex AI problems into manageable tasks
+3. **Communication**: Explaining technical concepts to non-technical stakeholders
+4. **Collaboration**: Working with cross-functional teams on AI projects
+
+## Impact on Career Goals
+
+This internship solidified my interest in AI and machine learning, providing:
+- Practical experience with industry-standard ML tools and frameworks
+- Understanding of the complete ML lifecycle from data to deployment
+- Exposure to real-world AI challenges and solutions
+- Foundation for pursuing advanced studies or careers in AI/ML
+
+## Advice for Aspiring AI/ML Engineers
+
+### Building Foundation
+1. **Master the Basics**: Strong foundation in mathematics and programming
+2. **Understand Algorithms**: Know when and why to use specific algorithms
+3. **Practice Regularly**: Work on Kaggle competitions and personal projects
+4. **Stay Updated**: Follow latest research and industry developments
+
+### Practical Skills
+1. **Learn by Doing**: Implement algorithms from scratch before using libraries
+2. **Focus on Data**: Spend time understanding and preparing data
+3. **Document Everything**: Keep detailed notes of experiments and results
+4. **Build Portfolio**: Showcase projects demonstrating ML skills
+
+### Continuous Learning
+1. **Online Courses**: Platforms like Coursera, fast.ai, and DeepLearning.AI
+2. **Research Papers**: Read and implement papers from arXiv and conferences
+3. **Community Engagement**: Participate in ML communities and forums
+4. **Open Source**: Contribute to ML open-source projects
+
+## Future of AI and Machine Learning
+
+### Emerging Trends
+- **Large Language Models**: GPT-4 and beyond transforming NLP
+- **Multimodal AI**: Models understanding multiple data types simultaneously
+- **Edge AI**: Running ML models on edge devices for real-time inference
+- **Explainable AI**: Making AI decisions more transparent and interpretable
+
+### Ethical Considerations
+- **Bias in AI**: Ensuring fairness and reducing algorithmic bias
+- **Privacy**: Protecting user data in AI applications
+- **Transparency**: Making AI systems explainable and accountable
+- **Responsible AI**: Developing AI with societal impact in mind
+
+## Conclusion
+
+My internship at InLighnX Global was a transformative experience that bridged theoretical knowledge with practical application. The hands-on experience with machine learning projects, combined with mentorship from experienced AI professionals, has prepared me for future challenges in the field of artificial intelligence.
+
+The journey from understanding basic ML concepts to deploying production-ready AI systems has been incredibly rewarding. I'm excited to continue exploring the vast possibilities of AI and machine learning in my future endeavors.
+
+For anyone interested in AI/ML, remember: the field is constantly evolving, and the key to success is continuous learning, practical application, and staying curious about new developments.
+    `,
+    publishDate: new Date('2025-10-25'),
+    readingTime: 10,
+    tags: ['AI', 'Machine Learning', 'Deep Learning', 'Internship', 'Python', 'TensorFlow', 'Data Science'],
+    category: 'Career & Experience',
+    featured: true,
+    coverImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop',
+    author: {
+      name: 'Pranesh K K',
+      avatar: '/images/projects/WhatsApp Image 2025-11-30 at 08.54.00_f6ac79c0.jpg'
     }
   },
   {
@@ -597,10 +762,10 @@ The key is to balance innovation with stability, always keeping user needs at th
     tags: ['Web Development', 'React', 'CSS', 'Performance', 'Accessibility', 'Modern Tools'],
     category: 'Technology Trends',
     featured: false,
-    coverImage: '/images/blog/modern-web-development.jpg',
+    coverImage: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=600&fit=crop',
     author: {
       name: 'Pranesh K K',
-      avatar: '/images/pranesh-avatar.jpg'
+      avatar: '/images/projects/WhatsApp Image 2025-11-30 at 08.54.00_f6ac79c0.jpg'
     }
   }
 ];

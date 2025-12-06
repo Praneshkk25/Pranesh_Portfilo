@@ -173,14 +173,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       if (onSubmit) {
         success = await onSubmit(formData);
       } else {
-        // Default behavior: simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Default behavior: Open email client with pre-filled data
+        const mailtoLink = `mailto:pkpraneshkk@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        )}`;
+        
+        window.location.href = mailtoLink;
+        
+        // Simulate success after opening email client
+        await new Promise(resolve => setTimeout(resolve, 1000));
         success = true;
       }
 
       if (success) {
         setSubmitStatus('success');
-        setSubmitMessage('Thank you for your message! I\'ll get back to you soon.');
+        setSubmitMessage('Your email client has been opened. Please send the email to complete your message.');
         setFormData({ name: '', email: '', subject: '', message: '' });
         setErrors({});
       } else {

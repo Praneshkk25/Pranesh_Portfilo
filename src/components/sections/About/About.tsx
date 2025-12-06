@@ -90,26 +90,28 @@ const About: React.FC = () => {
               {/* Experience */}
               <div className={styles.experience}>
                 <h3 className={styles.sectionTitle}>Professional Experience</h3>
-                <div className={styles.experienceCard}>
-                  <div className={styles.experienceHeader}>
-                    <h4 className={styles.position}>
-                      {personalInfo.experience.internship.position}
-                    </h4>
-                    <span className={styles.duration}>
-                      {personalInfo.experience.internship.duration}
-                    </span>
+                {personalInfo.experience.map((exp, expIndex) => (
+                  <div key={expIndex} className={styles.experienceCard}>
+                    <div className={styles.experienceHeader}>
+                      <h4 className={styles.position}>
+                        {exp.position}
+                      </h4>
+                      <span className={styles.duration}>
+                        {exp.duration}
+                      </span>
+                    </div>
+                    <p className={styles.company}>
+                      {exp.company}
+                    </p>
+                    <ul className={styles.responsibilities}>
+                      {exp.responsibilities.map((responsibility, index) => (
+                        <li key={index} className={styles.responsibility}>
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className={styles.company}>
-                    {personalInfo.experience.internship.company}
-                  </p>
-                  <ul className={styles.responsibilities}>
-                    {personalInfo.experience.internship.responsibilities.map((responsibility, index) => (
-                      <li key={index} className={styles.responsibility}>
-                        {responsibility}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                ))}
               </div>
 
               {/* Certifications */}
@@ -156,40 +158,6 @@ const About: React.FC = () => {
                   {interest}
                 </motion.span>
               ))}
-            </div>
-          </motion.div>
-
-          {/* Contact Information */}
-          <motion.div className={styles.contactInfo} variants={itemVariants}>
-            <h3 className={styles.sectionTitle}>Get In Touch</h3>
-            <div className={styles.contactGrid}>
-              <div className={styles.contactItem}>
-                <span className={styles.contactIcon}>📧</span>
-                <div className={styles.contactDetails}>
-                  <span className={styles.contactLabel}>Email</span>
-                  <a href={`mailto:${personalInfo.email}`} className={styles.contactValue}>
-                    {personalInfo.email}
-                  </a>
-                </div>
-              </div>
-              <div className={styles.contactItem}>
-                <span className={styles.contactIcon}>📱</span>
-                <div className={styles.contactDetails}>
-                  <span className={styles.contactLabel}>Phone</span>
-                  <a href={`tel:${personalInfo.phone}`} className={styles.contactValue}>
-                    {personalInfo.phone}
-                  </a>
-                </div>
-              </div>
-              <div className={styles.contactItem}>
-                <span className={styles.contactIcon}>📍</span>
-                <div className={styles.contactDetails}>
-                  <span className={styles.contactLabel}>Location</span>
-                  <span className={styles.contactValue}>
-                    {personalInfo.location}
-                  </span>
-                </div>
-              </div>
             </div>
           </motion.div>
         </motion.div>
